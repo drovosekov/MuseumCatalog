@@ -1,4 +1,5 @@
 # Museum Catalog
+![Museum Catalog](IMAGES/museum.png)
 
 ## Требования
 - Visual Studio 2019/2022
