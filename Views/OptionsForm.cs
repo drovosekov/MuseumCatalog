@@ -138,6 +138,7 @@ namespace MuseumCatalog.Views
         private void BtnViewAudit_Click(object sender, EventArgs e)
         {
             using AuditLogForm auditForm = new(_config.DatabasePath);
+            if (ModifierKeys.HasFlag(Keys.Control)) auditForm.button1.Visible = true;
             auditForm.ShowDialog();
         }
 

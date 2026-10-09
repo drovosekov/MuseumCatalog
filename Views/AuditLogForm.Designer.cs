@@ -31,6 +31,7 @@ namespace MuseumCatalog.Views
         private void InitializeComponent()
         {
             this.pnlFilters = new System.Windows.Forms.Panel();
+            this.txtFilterOp = new System.Windows.Forms.ComboBox();
             this.lblFilterPC = new System.Windows.Forms.Label();
             this.txtFilterPC = new System.Windows.Forms.TextBox();
             this.lblFilterOp = new System.Windows.Forms.Label();
@@ -41,16 +42,15 @@ namespace MuseumCatalog.Views
             this.lblFilterTo = new System.Windows.Forms.Label();
             this.dtpFilterTo = new System.Windows.Forms.DateTimePicker();
             this.dgAudit = new System.Windows.Forms.DataGridView();
-            this.pnlActions = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnViewCard = new System.Windows.Forms.Button();
-            this.btnRestore = new System.Windows.Forms.Button();
-            this.txtFilterOp = new System.Windows.Forms.ComboBox();
             this.colAuditID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAuditDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAuditPC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAuditOp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAuditExhID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlActions = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnViewCard = new System.Windows.Forms.Button();
+            this.btnRestore = new System.Windows.Forms.Button();
             this.pnlFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAudit)).BeginInit();
             this.pnlActions.SuspendLayout();
@@ -75,11 +75,27 @@ namespace MuseumCatalog.Views
             this.pnlFilters.Size = new System.Drawing.Size(929, 62);
             this.pnlFilters.TabIndex = 0;
             // 
+            // txtFilterOp
+            // 
+            this.txtFilterOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtFilterOp.FormattingEnabled = true;
+            this.txtFilterOp.Items.AddRange(new object[] {
+            "OPEN_DB",
+            "RESTORE_EXHIBIT",
+            "RESTORE_EXHIBIT_NEW",
+            "ADD_EXHIBIT",
+            "EDIT_EXHIBIT",
+            "DELETE_EXHIBIT"});
+            this.txtFilterOp.Location = new System.Drawing.Point(332, 5);
+            this.txtFilterOp.Name = "txtFilterOp";
+            this.txtFilterOp.Size = new System.Drawing.Size(174, 25);
+            this.txtFilterOp.TabIndex = 9;
+            // 
             // lblFilterPC
             // 
             this.lblFilterPC.AutoSize = true;
             this.lblFilterPC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFilterPC.Location = new System.Drawing.Point(12, 7);
+            this.lblFilterPC.Location = new System.Drawing.Point(12, 8);
             this.lblFilterPC.Name = "lblFilterPC";
             this.lblFilterPC.Size = new System.Drawing.Size(31, 17);
             this.lblFilterPC.TabIndex = 0;
@@ -90,14 +106,14 @@ namespace MuseumCatalog.Views
             this.txtFilterPC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtFilterPC.Location = new System.Drawing.Point(47, 6);
             this.txtFilterPC.Name = "txtFilterPC";
-            this.txtFilterPC.Size = new System.Drawing.Size(229, 23);
+            this.txtFilterPC.Size = new System.Drawing.Size(212, 23);
             this.txtFilterPC.TabIndex = 1;
             // 
             // lblFilterOp
             // 
             this.lblFilterOp.AutoSize = true;
             this.lblFilterOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFilterOp.Location = new System.Drawing.Point(282, 7);
+            this.lblFilterOp.Location = new System.Drawing.Point(265, 8);
             this.lblFilterOp.Name = "lblFilterOp";
             this.lblFilterOp.Size = new System.Drawing.Size(70, 17);
             this.lblFilterOp.TabIndex = 2;
@@ -153,7 +169,7 @@ namespace MuseumCatalog.Views
             // 
             this.lblFilterTo.AutoSize = true;
             this.lblFilterTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFilterTo.Location = new System.Drawing.Point(265, 38);
+            this.lblFilterTo.Location = new System.Drawing.Point(297, 38);
             this.lblFilterTo.Name = "lblFilterTo";
             this.lblFilterTo.Size = new System.Drawing.Size(28, 17);
             this.lblFilterTo.TabIndex = 8;
@@ -164,7 +180,7 @@ namespace MuseumCatalog.Views
             this.dtpFilterTo.CustomFormat = "dd.MM.yyyy HH:mm";
             this.dtpFilterTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dtpFilterTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFilterTo.Location = new System.Drawing.Point(299, 35);
+            this.dtpFilterTo.Location = new System.Drawing.Point(331, 35);
             this.dtpFilterTo.Name = "dtpFilterTo";
             this.dtpFilterTo.ShowCheckBox = true;
             this.dtpFilterTo.Size = new System.Drawing.Size(175, 23);
@@ -198,75 +214,6 @@ namespace MuseumCatalog.Views
             this.dgAudit.Size = new System.Drawing.Size(929, 413);
             this.dgAudit.TabIndex = 1;
             this.dgAudit.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAudit_CellDoubleClick);
-            // 
-            // pnlActions
-            // 
-            this.pnlActions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.pnlActions.Controls.Add(this.button1);
-            this.pnlActions.Controls.Add(this.btnViewCard);
-            this.pnlActions.Controls.Add(this.btnRestore);
-            this.pnlActions.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlActions.Location = new System.Drawing.Point(0, 474);
-            this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(929, 46);
-            this.pnlActions.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 37);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Х";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.BtnClearLog_Click);
-            // 
-            // btnViewCard
-            // 
-            this.btnViewCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnViewCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnViewCard.Location = new System.Drawing.Point(47, 3);
-            this.btnViewCard.Name = "btnViewCard";
-            this.btnViewCard.Size = new System.Drawing.Size(180, 37);
-            this.btnViewCard.TabIndex = 0;
-            this.btnViewCard.Text = "Открыть карточку";
-            this.btnViewCard.UseVisualStyleBackColor = true;
-            this.btnViewCard.Click += new System.EventHandler(this.BtnViewCard_Click);
-            // 
-            // btnRestore
-            // 
-            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRestore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
-            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRestore.Location = new System.Drawing.Point(233, 3);
-            this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(214, 37);
-            this.btnRestore.TabIndex = 1;
-            this.btnRestore.Text = "Восстановить карточку";
-            this.btnRestore.UseVisualStyleBackColor = false;
-            this.btnRestore.Click += new System.EventHandler(this.BtnRestore_Click);
-            // 
-            // txtFilterOp
-            // 
-            this.txtFilterOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtFilterOp.FormattingEnabled = true;
-            this.txtFilterOp.Items.AddRange(new object[] {
-            "OPEN_DB",
-            "RESTORE_EXHIBIT",
-            "RESTORE_EXHIBIT_NEW",
-            "ADD_EXHIBIT",
-            "EDIT_EXHIBIT",
-            "DELETE_EXHIBIT"});
-            this.txtFilterOp.Location = new System.Drawing.Point(348, 5);
-            this.txtFilterOp.Name = "txtFilterOp";
-            this.txtFilterOp.Size = new System.Drawing.Size(126, 25);
-            this.txtFilterOp.TabIndex = 9;
             // 
             // colAuditID
             // 
@@ -317,6 +264,60 @@ namespace MuseumCatalog.Views
             this.colAuditExhID.ReadOnly = true;
             this.colAuditExhID.Width = 52;
             // 
+            // pnlActions
+            // 
+            this.pnlActions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.pnlActions.Controls.Add(this.button1);
+            this.pnlActions.Controls.Add(this.btnViewCard);
+            this.pnlActions.Controls.Add(this.btnRestore);
+            this.pnlActions.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlActions.Location = new System.Drawing.Point(0, 474);
+            this.pnlActions.Name = "pnlActions";
+            this.pnlActions.Size = new System.Drawing.Size(929, 46);
+            this.pnlActions.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 37);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Х";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.BtnClearLog_Click);
+            // 
+            // btnViewCard
+            // 
+            this.btnViewCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnViewCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnViewCard.Location = new System.Drawing.Point(49, 3);
+            this.btnViewCard.Name = "btnViewCard";
+            this.btnViewCard.Size = new System.Drawing.Size(180, 37);
+            this.btnViewCard.TabIndex = 0;
+            this.btnViewCard.Text = "Открыть карточку";
+            this.btnViewCard.UseVisualStyleBackColor = true;
+            this.btnViewCard.Click += new System.EventHandler(this.BtnViewCard_Click);
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRestore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(230)))));
+            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnRestore.Location = new System.Drawing.Point(235, 3);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(214, 37);
+            this.btnRestore.TabIndex = 1;
+            this.btnRestore.Text = "Восстановить карточку";
+            this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Click += new System.EventHandler(this.BtnRestore_Click);
+            // 
             // AuditLogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,12 +342,12 @@ namespace MuseumCatalog.Views
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox txtFilterOp;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAuditID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAuditDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAuditPC;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAuditOp;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAuditExhID;
+        internal System.Windows.Forms.Button button1;
     }
 }
