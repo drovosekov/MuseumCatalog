@@ -22,7 +22,6 @@ namespace MuseumCatalog.Views
             this.lblDbPath = new System.Windows.Forms.Label();
             this.txtDbPath = new System.Windows.Forms.TextBox();
             this.btnBrowseDb = new System.Windows.Forms.Button();
-            this.lblCreateDb = new System.Windows.Forms.Label();
             this.btnCreateDb = new System.Windows.Forms.Button();
             this.lblTemplatePath = new System.Windows.Forms.Label();
             this.txtTemplatePath = new System.Windows.Forms.TextBox();
@@ -36,11 +35,11 @@ namespace MuseumCatalog.Views
             // lblMuseumName
             // 
             this.lblMuseumName.AutoSize = true;
-            this.lblMuseumName.Location = new System.Drawing.Point(20, 25);
+            this.lblMuseumName.Location = new System.Drawing.Point(7, 25);
             this.lblMuseumName.Name = "lblMuseumName";
-            this.lblMuseumName.Size = new System.Drawing.Size(113, 19);
+            this.lblMuseumName.Size = new System.Drawing.Size(157, 19);
             this.lblMuseumName.TabIndex = 0;
-            this.lblMuseumName.Text = "Название музея:";
+            this.lblMuseumName.Text = "Название организации:";
             // 
             // txtMuseumName
             // 
@@ -52,7 +51,7 @@ namespace MuseumCatalog.Views
             // lblDbPath
             // 
             this.lblDbPath.AutoSize = true;
-            this.lblDbPath.Location = new System.Drawing.Point(20, 55);
+            this.lblDbPath.Location = new System.Drawing.Point(37, 55);
             this.lblDbPath.Name = "lblDbPath";
             this.lblDbPath.Size = new System.Drawing.Size(127, 19);
             this.lblDbPath.TabIndex = 2;
@@ -76,29 +75,20 @@ namespace MuseumCatalog.Views
             this.btnBrowseDb.UseVisualStyleBackColor = true;
             this.btnBrowseDb.Click += new System.EventHandler(this.BtnBrowseDb_Click);
             // 
-            // lblCreateDb
-            // 
-            this.lblCreateDb.AutoSize = true;
-            this.lblCreateDb.Location = new System.Drawing.Point(20, 88);
-            this.lblCreateDb.Name = "lblCreateDb";
-            this.lblCreateDb.Size = new System.Drawing.Size(108, 19);
-            this.lblCreateDb.TabIndex = 5;
-            this.lblCreateDb.Text = "Создать новую:";
-            // 
             // btnCreateDb
             // 
             this.btnCreateDb.Location = new System.Drawing.Point(170, 85);
             this.btnCreateDb.Name = "btnCreateDb";
-            this.btnCreateDb.Size = new System.Drawing.Size(120, 28);
+            this.btnCreateDb.Size = new System.Drawing.Size(300, 28);
             this.btnCreateDb.TabIndex = 6;
-            this.btnCreateDb.Text = "Создать БД";
+            this.btnCreateDb.Text = "Создать новую базу данных...";
             this.btnCreateDb.UseVisualStyleBackColor = true;
             this.btnCreateDb.Click += new System.EventHandler(this.BtnCreateDb_Click);
             // 
             // lblTemplatePath
             // 
             this.lblTemplatePath.AutoSize = true;
-            this.lblTemplatePath.Location = new System.Drawing.Point(20, 125);
+            this.lblTemplatePath.Location = new System.Drawing.Point(51, 125);
             this.lblTemplatePath.Name = "lblTemplatePath";
             this.lblTemplatePath.Size = new System.Drawing.Size(113, 19);
             this.lblTemplatePath.TabIndex = 7;
@@ -125,7 +115,7 @@ namespace MuseumCatalog.Views
             // lblPCId
             // 
             this.lblPCId.AutoSize = true;
-            this.lblPCId.Location = new System.Drawing.Point(20, 158);
+            this.lblPCId.Location = new System.Drawing.Point(29, 158);
             this.lblPCId.Name = "lblPCId";
             this.lblPCId.Size = new System.Drawing.Size(135, 19);
             this.lblPCId.TabIndex = 10;
@@ -169,7 +159,6 @@ namespace MuseumCatalog.Views
             this.Controls.Add(this.lblDbPath);
             this.Controls.Add(this.txtDbPath);
             this.Controls.Add(this.btnBrowseDb);
-            this.Controls.Add(this.lblCreateDb);
             this.Controls.Add(this.btnCreateDb);
             this.Controls.Add(this.lblTemplatePath);
             this.Controls.Add(this.txtTemplatePath);
@@ -197,7 +186,6 @@ namespace MuseumCatalog.Views
         private System.Windows.Forms.Label lblDbPath;
         private System.Windows.Forms.TextBox txtDbPath;
         private System.Windows.Forms.Button btnBrowseDb;
-        private System.Windows.Forms.Label lblCreateDb;
         private System.Windows.Forms.Button btnCreateDb;
         private System.Windows.Forms.Label lblTemplatePath;
         private System.Windows.Forms.TextBox txtTemplatePath;

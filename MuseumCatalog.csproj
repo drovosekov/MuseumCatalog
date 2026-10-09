@@ -7,7 +7,7 @@
     <LangVersion>latest</LangVersion>
     <AssemblyName>MuseumCatalog</AssemblyName>
     <RootNamespace>MuseumCatalog</RootNamespace>
-    <ApplicationIcon>favicon (3).ico</ApplicationIcon>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
