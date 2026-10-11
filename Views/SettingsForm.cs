@@ -1,3 +1,4 @@
+using System;
 using System.Windows.Forms;
 using MuseumCatalog.Data;
 using MuseumCatalog.Services;
@@ -34,16 +35,23 @@ namespace MuseumCatalog.Views
 
         private void BtnCreateDb_Click(object sender, System.EventArgs e)
         {
-            using SaveFileDialog sfd = new () { Filter = "SQLite БД (*.db)|*.db", FileName = "museum.db" };
-            if (sfd.ShowDialog() != DialogResult.OK) return;
-            DatabaseService.InitializeDatabase(sfd.FileName);
-            txtDbPath.Text = sfd.FileName;
-            MessageBox.Show("БД создана.", "Готово");
+            try
+            {
+                using SaveFileDialog sfd = new() { Filter = "SQLite БД (*.db)|*.db", FileName = "museum.db" };
+                if (sfd.ShowDialog() != DialogResult.OK) return;
+                DatabaseService.InitializeDatabase(sfd.FileName);
+                txtDbPath.Text = sfd.FileName;
+                MessageBox.Show("БД создана.", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnBrowseTemplate_Click(object sender, System.EventArgs e)
         {
-            using OpenFileDialog ofd = new () { Filter = "Word шаблон (*.docx)|*.docx" };
+            using OpenFileDialog ofd = new() { Filter = "Word шаблон (*.docx)|*.docx" };
             if (ofd.ShowDialog() == DialogResult.OK)
                 txtTemplatePath.Text = ofd.FileName;
         }

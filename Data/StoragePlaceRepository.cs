@@ -15,11 +15,10 @@ namespace MuseumCatalog.Data
 
         public List<StoragePlace> GetAll()
         {
-            var results = new List<StoragePlace>();
-            using var conn = new SQLiteConnection(_connectionString);
+            List<StoragePlace> results = new();
+            using SQLiteConnection conn = new(_connectionString);
             conn.Open();
-            using var cmd = new SQLiteCommand(
-                "SELECT ID, PlaceName FROM tbl_StoragePlaces ORDER BY PlaceName", conn);
+            using SQLiteCommand cmd = new("SELECT ID, PlaceName FROM StoragePlaces ORDER BY PlaceName", conn);
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -34,20 +33,18 @@ namespace MuseumCatalog.Data
 
         public void Add(string placeName)
         {
-            using var conn = new SQLiteConnection(_connectionString);
+            using SQLiteConnection conn = new(_connectionString);
             conn.Open();
-            using var cmd = new SQLiteCommand(
-                "INSERT INTO tbl_StoragePlaces (PlaceName) VALUES (@name)", conn);
+            using SQLiteCommand cmd = new("INSERT INTO StoragePlaces (PlaceName) VALUES (@name)", conn);
             cmd.Parameters.AddWithValue("@name", placeName);
             cmd.ExecuteNonQuery();
         }
 
         public void Update(int id, string placeName)
         {
-            using var conn = new SQLiteConnection(_connectionString);
+            using SQLiteConnection conn = new(_connectionString);
             conn.Open();
-            using var cmd = new SQLiteCommand(
-                "UPDATE tbl_StoragePlaces SET PlaceName = @name WHERE ID = @id", conn);
+            using SQLiteCommand cmd = new("UPDATE StoragePlaces SET PlaceName = @name WHERE ID = @id", conn);
             cmd.Parameters.AddWithValue("@name", placeName);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
@@ -55,10 +52,9 @@ namespace MuseumCatalog.Data
 
         public void Delete(int id)
         {
-            using var conn = new SQLiteConnection(_connectionString);
+            using SQLiteConnection conn = new(_connectionString);
             conn.Open();
-            using var cmd = new SQLiteCommand(
-                "DELETE FROM tbl_StoragePlaces WHERE ID = @id", conn);
+            using SQLiteCommand cmd = new("DELETE FROM StoragePlaces WHERE ID = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
         }

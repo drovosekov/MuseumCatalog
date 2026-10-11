@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using MuseumCatalog.Data;
 using MuseumCatalog.Models;
 using MuseumCatalog.Services;
+using Utils;
 
 namespace MuseumCatalog.Views
 {
@@ -206,5 +207,9 @@ namespace MuseumCatalog.Views
         {
             BtnViewCard_Click(null, null);
         }
+
+        private void AuditLogForm_Load(object sender, EventArgs e) => this.LoadFormPosition(true);
+
+        private void AuditLogForm_FormClosing(object sender, FormClosingEventArgs e) => this.SaveFormPosition();
     }
 }

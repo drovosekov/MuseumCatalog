@@ -66,8 +66,8 @@ namespace MuseumCatalog.Data
             }
 
             string sql = @"SELECT e.*, s.PlaceName
-                          FROM tbl_Exhibits e
-                          LEFT JOIN tbl_StoragePlaces s ON e.StoragePlaceID = s.ID";
+                          FROM Exhibits e
+                          LEFT JOIN StoragePlaces s ON e.StoragePlaceID = s.ID";
             if (where.Count > 0)
                 sql += " WHERE " + string.Join(" AND ", where);
             sql += " ORDER BY e.ID DESC";
@@ -89,8 +89,8 @@ namespace MuseumCatalog.Data
         public Exhibit GetById(int id)
         {
             const string sql = @"SELECT e.*, s.PlaceName
-                                FROM tbl_Exhibits e
-                                LEFT JOIN tbl_StoragePlaces s ON e.StoragePlaceID = s.ID
+                                FROM Exhibits e
+                                LEFT JOIN StoragePlaces s ON e.StoragePlaceID = s.ID
                                 WHERE e.ID = @id";
 
             using var conn = new SQLiteConnection(_connectionString);
@@ -106,7 +106,7 @@ namespace MuseumCatalog.Data
 
         public int Insert(Exhibit ex)
         {
-            const string sql = @"INSERT INTO tbl_Exhibits
+            const string sql = @"INSERT INTO Exhibits
                 (Cipher, KPNumber, TimeStamp, Source, ActNumber,
                  MaterialTechnique, ItemName, Description, Size,
                  Condition, StoragePlaceID, Photo)
@@ -124,7 +124,7 @@ namespace MuseumCatalog.Data
 
         public void Update(Exhibit ex)
         {
-            const string sql = @"UPDATE tbl_Exhibits SET
+            const string sql = @"UPDATE Exhibits SET
                 Cipher = @Cipher, KPNumber = @KPNumber, TimeStamp = @TimeStamp,
                 Source = @Source, ActNumber = @ActNumber,
                 MaterialTechnique = @MaterialTechnique, ItemName = @ItemName,
@@ -144,7 +144,7 @@ namespace MuseumCatalog.Data
         {
             using var conn = new SQLiteConnection(_connectionString);
             conn.Open();
-            using var cmd = new SQLiteCommand("DELETE FROM tbl_Exhibits WHERE ID = @id", conn);
+            using var cmd = new SQLiteCommand("DELETE FROM Exhibits WHERE ID = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
         }

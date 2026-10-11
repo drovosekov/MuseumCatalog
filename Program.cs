@@ -32,7 +32,7 @@ namespace MuseumCatalog
                     BackupService.CreateBackup(config.DatabasePath);
 
                     string pcId = PCIdentifierService.Generate();
-                    var lockSvc = new LockService(config.DatabasePath);
+                    LockService lockSvc = new(config.DatabasePath);
                     lockSvc.CleanupStaleLocks(TimeSpan.FromHours(1));
 
                     var auditRepo = new Data.AuditRepository(config.DatabasePath);

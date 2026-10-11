@@ -9,7 +9,7 @@ namespace MuseumCatalog.Data
             // Connection string с WAL-режимом и таймаутом блокировки
             string connStr = GetConnectionString(dbPath);
 
-            using var conn = new SQLiteConnection(connStr);
+            using SQLiteConnection conn = new (connStr);
             conn.Open();
 
             // Включаем WAL — позволяет читать и писать одновременно из разных процессов
@@ -68,7 +68,7 @@ namespace MuseumCatalog.Data
                             OperationDate TEXT,
                             PCIdentifier TEXT,
                             OperationType TEXT,
-                            ExhibitID INTEGER
+                            ExhibitID INTEGER,
                             Cipher TEXT DEFAULT '',
                             KPNumber TEXT DEFAULT '',
                             TimeStamp TEXT,

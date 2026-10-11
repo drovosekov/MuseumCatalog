@@ -333,6 +333,8 @@ namespace MuseumCatalog.Views
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Журнал работы";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuditLogForm_FormClosing);
+            this.Load += new System.EventHandler(this.AuditLogForm_Load);
             this.pnlFilters.ResumeLayout(false);
             this.pnlFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAudit)).EndInit();
