@@ -17,7 +17,7 @@ namespace MuseumCatalog.Views
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dgExhibits = new System.Windows.Forms.DataGridView();
             this.colExhID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,8 +152,8 @@ namespace MuseumCatalog.Views
             // colTimeStamp
             // 
             this.colTimeStamp.DataPropertyName = "TimeStamp";
-            dataGridViewCellStyle1.Format = "dd.MM.yyyy";
-            this.colTimeStamp.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "dd.MM.yyyy";
+            this.colTimeStamp.DefaultCellStyle = dataGridViewCellStyle2;
             this.colTimeStamp.HeaderText = "Время";
             this.colTimeStamp.MinimumWidth = 6;
             this.colTimeStamp.Name = "colTimeStamp";
@@ -511,6 +511,8 @@ namespace MuseumCatalog.Views
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Музейный каталог";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgExhibits)).EndInit();
             this.groupBoxFilters.ResumeLayout(false);
             this.groupBoxFilters.PerformLayout();

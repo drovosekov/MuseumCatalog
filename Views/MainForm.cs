@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using MuseumCatalog.Data;
 using MuseumCatalog.Models;
 using MuseumCatalog.Services;
+using Utils;
 
 namespace MuseumCatalog.Views
 {
@@ -276,14 +277,23 @@ namespace MuseumCatalog.Views
         {
             using OptionsForm opt = new(_config, _pcId);
             opt.ShowDialog();
-             
+
             Inti(_config);
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            using AboutForm af= new();
+            using AboutForm af = new();
             af.ShowDialog();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            this.LoadFormPosition(true);
+            if (!string.IsNullOrEmpty(_config.MuseumName))
+                this.Text += " - " + _config.MuseumName;
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => this.SaveFormPosition();
     }
 }
